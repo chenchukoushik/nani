@@ -4,17 +4,67 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Login</title>
-  <link rel="stylesheet" href="login.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f4;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .login-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      width: 300px;
+      text-align: center;
+    }
+
+    input[type="tel"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 10px;
+      background: #0078d7;
+      color: white;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+
+    button:hover {
+      background: #005fa3;
+    }
+  </style>
 </head>
 <body>
-  <div class="login-container">
+  <div class="login-box">
     <h2>Login with Mobile Number</h2>
     <form id="loginForm">
-      <input type="tel" id="mobile" placeholder="Enter Mobile Number" required />
+      <input type="tel" id="phone" placeholder="Enter mobile number" required />
       <button type="submit">Login</button>
     </form>
   </div>
 
-  <script src="login.js"></script>
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const phone = document.getElementById("phone").value.trim();
+      if(phone.length >= 10){
+        window.location.href = "https://chenchukoushik.github.io/chenchukoushik";
+      } else {
+        alert("Please enter a valid mobile number");
+      }
+    });
+  </script>
 </body>
 </html>
