@@ -6,70 +6,74 @@
   <title>Login</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      background: #f2f2f2;
+      background: #f4f4f4;
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
+      margin: 0;
     }
 
     .login-container {
-      background: white;
+      background: #fff;
       padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      border-radius: 8px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
       width: 300px;
       text-align: center;
     }
 
     h2 {
       margin-bottom: 20px;
-      color: #0078d7;
+      color: #333;
     }
 
     input[type="tel"] {
       width: 100%;
-      padding: 10px 15px;
-      margin-bottom: 20px;
-      border: 1.5px solid #ccc;
-      border-radius: 8px;
-      font-size: 1rem;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
     }
 
     button {
       width: 100%;
       padding: 12px;
-      background-color: #0078d7;
+      background-color: #007BFF;
       color: white;
       border: none;
-      border-radius: 8px;
-      font-size: 1rem;
+      border-radius: 5px;
+      font-size: 16px;
       cursor: pointer;
-      font-weight: bold;
     }
 
     button:hover {
-      background-color: #005fbf;
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <div class="login-container">
-    <h2>Login with Contact Number</h2>
-    <form id="loginForm">
-      <input type="tel" id="phone" placeholder="Enter contact number" required />
+    <h2>Login with Mobile Number</h2>
+    <form onsubmit="handleLogin(event)">
+      <input type="tel" id="mobile" placeholder="Enter Mobile Number" required />
       <button type="submit">Login</button>
     </form>
   </div>
 
   <script>
-    document.getElementById('loginForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      // Redirect to homepage after "login"
-      window.location.href = "index.html"; // or your main page path
-    });
+    function handleLogin(event) {
+      event.preventDefault();
+      const number = document.getElementById('mobile').value;
+      if (number.length >= 10) {
+        // Redirect to main page after login
+        window.location.href = "https://chenchukoushik.github.io/chenchukoushik";
+      } else {
+        alert("Please enter a valid mobile number");
+      }
+    }
   </script>
 </body>
 </html>
